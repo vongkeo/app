@@ -48,6 +48,7 @@ Feel free to reach out if you'd like to collaborate on a project or just want to
 
 - [LinkedIn](Your LinkedIn Profile URL)
 - [Twitter](Your Twitter Handle URL)
-- [Email](mailto:Your Email Address)
+- [Email](mailto:vongkeokeosavanh@gmail.com)
+- [Youtube](https://www.youtube.com/@devla7368)
 
 Thanks for visiting my profile! Have a great day! 😊

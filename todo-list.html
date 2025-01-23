@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Todo App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .btn {
+          @apply px-4 py-2 font-medium text-white rounded transition-colors duration-300;
+        }
+        .btn-primary {
+          @apply bg-blue-500 hover:bg-blue-700;
+        }
+        .btn-remove {
+          @apply text-red-500 hover:text-red-700;
+        }
+        .btn-clear {
+          @apply px-3 py-1 rounded text-gray-700 hover:bg-gray-300 transition-colors duration-300;
+        }
+        .btn-clear-dark {
+          @apply text-gray-300 hover:bg-gray-700;
+        }
+        .input-text {
+          @apply w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-500;
+        }
+        .input-text-dark {
+          @apply border-gray-600  bg-gray-800 text-white focus:ring-blue-700;
+        }
+        .todo-item {
+          @apply flex items-center py-3 px-4 border-b transition-colors duration-300;
+        }
+        .todo-item:last-child {
+          @apply border-b-0;
+        }
+        .todo-item-dark {
+          @apply border-gray-600;
+        }
+        .todo-item-dark:hover {
+          @apply bg-gray-800;
+        }
+        .todo-item:hover {
+          @apply bg-gray-100;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <div id="app" class="flex flex-col h-screen">
+      <header
+        class="bg-blue-500 dark:bg-blue-800 text-white py-4 border-b dark:border-blue-900"
+      >
+        <div class="container mx-auto flex items-center justify-between">
+          <h1 class="text-2xl font-semibold">My Todo List</h1>
+          <button
+            @click="toggleDarkMode"
+            class="p-2 focus:outline-none"
+            aria-label="Toggle Dark Mode"
+          >
+            <i
+              :class="darkMode ? 'fas fa-sun' : 'fas fa-moon'"
+              class="text-xl"
+            ></i>
+          </button>
+        </div>
+      </header>
+
+      <main class="container mx-auto flex-grow px-4 py-6 overflow-y-auto">
+        <div class="mb-4 flex items-center space-x-2">
+          <input
+            type="text"
+            v-model="searchQuery"
+            placeholder="Search tasks..."
+            class="input-text"
+            :class="darkMode ? 'input-text-dark' : ''"
+          />
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input
+            type="text"
+            v-model="newTodo"
+            placeholder="Add a new task..."
+            class="input-text"
+            :class="darkMode ? 'input-text-dark' : ''"
+            @keyup.enter="addTodo"
+          />
+          <button @click="addTodo" class="btn btn-primary">Add</button>
+        </div>
+
+        <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+          <li
+            v-for="(todo, index) in filteredTodos"
+            :key="index"
+            class="todo-item"
+            :class="{'completed line-through text-gray-400 dark:text-gray-500' : todo.completed , 'todo-item-dark': darkMode }"
+          >
+            <span class="mr-2 min-w-4">{{ index + 1 }}.</span>
+            <span
+              @dblclick="editTodo(index)"
+              v-if="!todo.editing"
+              class="flex-grow cursor-pointer"
+              >{{ todo.text }}</span
+            >
+            <input
+              v-else
+              type="text"
+              v-model="todo.text"
+              @keyup.enter="saveTodo(index)"
+              @blur="saveTodo(index)"
+              class="input-text"
+              :class="darkMode ? 'input-text-dark' : ''"
+            />
+            <div class="flex items-center space-x-2">
+              <span class="text-sm text-gray-500 dark:text-gray-400 mr-2"
+                >{{ formatTime(todo.createdAt) }}</span
+              >
+              <input
+                type="checkbox"
+                :checked="todo.completed"
+                @change="toggleTodo(index)"
+                class="mr-2 cursor-pointer"
+              />
+              <button
+                @click="removeTodoTitle(index)"
+                class="btn-remove"
+                title="Remove Task title"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+              <button
+                @click="removeTodo(index)"
+                class="btn-remove"
+                title="Remove Task"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+
+        <div
+          v-if="filteredTodos.length > 0"
+          class="mt-4 flex items-center justify-between"
+        >
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            {{ remainingTodos }} remaining items
+          </p>
+          <button
+            @click="clearCompleted"
+            v-if="completedTodos > 0"
+            class="btn-clear"
+            :class="darkMode ? 'btn-clear-dark': ''"
+          >
+            Clear completed
+          </button>
+        </div>
+        <div v-else class="mt-4 text-center text-gray-500 dark:text-gray-500">
+          <p>You have no tasks! Add one to start</p>
+        </div>
+      </main>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/a25883614e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./assets/js/todo.js"></script>
+  </body>
+</html>
