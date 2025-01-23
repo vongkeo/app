@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #181a20 !important;
+  font-family: "Roboto", sans-serif !important;
+}
+h1 {
+  text-align: center;
+  font-size: 24px;
+}
+a {
+  text-decoration: none;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.refresh-button {
+  background-color: #fcd536;
+  border: none;
+  color: black;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.refresh-button:hover {
+  background-color: #fcd536;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 0.5px solid #2c2f3e;
+}
+th {
+  font-weight: bold;
+}
+tr:hover {
+  background-color: #2c2f3e;
+}
+.positive {
+  color: #0ecb81 !important;
+}
+.negative {
+  color: #f6465d !important;
+}
+.crypto-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* text color */
+h1,
+th,
+td,
+.footer-container,
+.footer-container a,
+.form-label,
+#countdown {
+  color: #eaecef !important;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.form-label {
+  padding-top: 10px;
+}
+
+.text-yellow {
+  color: #fcd536;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #2c2f3e;
+  margin: 20px 0;
+}
+
+.pt-12 {
+  padding-top: 12px !important;
+}
+
+.mt-50 {
+  margin-top: 50px !important ;
+}
+
+.align-center {
+  text-align: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mb-12 {
+  margin-bottom: 12px !important;
+}

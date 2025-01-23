@@ -17,6 +17,24 @@ const featured = [
     href: "images-to-any-format.html",
     icon: "fas fa-image",
   },
+  {
+    title: "Todo List",
+    img: "https://getbootstrap.com/docs/5.3/examples/features/unsplash-photo-5.jpg",
+    href: "todo-list.html",
+    icon: "fas fa-tasks",
+  },
+  {
+    title: "Calculator",
+    img: "https://getbootstrap.com/docs/5.3/examples/features/unsplash-photo-6.jpg",
+    href: "calculator.html",
+    icon: "fas fa-calculator",
+  },
+  {
+    title: "Crypto Market",
+    img: "https://getbootstrap.com/docs/5.3/examples/features/unsplash-photo-6.jpg",
+    href: "crypto.html",
+    icon: "fas fa-chart-line",
+  },
 ];
 
 const featuredCardsContainer = document.getElementById("featured-cards");

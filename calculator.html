@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iPhone Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-black min-h-screen flex flex-col items-center justify-center">
+    <div class="w-80 bg-black rounded-lg p-4">
+      <!-- Display -->
+      <div
+        id="display"
+        class="text-right text-white text-5xl mb-4 pr-4 overflow-hidden"
+      >
+        0
+      </div>
+
+      <!-- Buttons -->
+      <div class="grid grid-cols-4 gap-2">
+        <!-- Row 1 -->
+        <button
+          class="bg-gray-500 text-black text-2xl rounded-full py-4"
+          onclick="clearDisplay()"
+        >
+          C
+        </button>
+        <button
+          class="bg-gray-500 text-black text-2xl rounded-full py-4"
+          onclick="toggleSign()"
+        >
+          +/-
+        </button>
+        <button
+          class="bg-gray-500 text-black text-2xl rounded-full py-4"
+          onclick="addOperator('%')"
+        >
+          %
+        </button>
+        <button
+          class="bg-orange-500 text-white text-2xl rounded-full py-4"
+          onclick="addOperator('/')"
+        >
+          ÷
+        </button>
+
+        <!-- Row 2 -->
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(7)"
+        >
+          7
+        </button>
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(8)"
+        >
+          8
+        </button>
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(9)"
+        >
+          9
+        </button>
+        <button
+          class="bg-orange-500 text-white text-2xl rounded-full py-4"
+          onclick="addOperator('*')"
+        >
+          ×
+        </button>
+
+        <!-- Row 3 -->
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(4)"
+        >
+          4
+        </button>
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(5)"
+        >
+          5
+        </button>
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(6)"
+        >
+          6
+        </button>
+        <button
+          class="bg-orange-500 text-white text-2xl rounded-full py-4"
+          onclick="addOperator('-')"
+        >
+          −
+        </button>
+
+        <!-- Row 4 -->
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(1)"
+        >
+          1
+        </button>
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(2)"
+        >
+          2
+        </button>
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(3)"
+        >
+          3
+        </button>
+        <button
+          class="bg-orange-500 text-white text-2xl rounded-full py-4"
+          onclick="addOperator('+')"
+        >
+          +
+        </button>
+
+        <!-- Row 5 -->
+        <button
+          class="col-span-2 bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber(0)"
+        >
+          0
+        </button>
+        <button
+          class="bg-gray-700 text-white text-2xl rounded-full py-4"
+          onclick="addNumber('.')"
+        >
+          .
+        </button>
+        <button
+          class="bg-orange-500 text-white text-2xl rounded-full py-4"
+          onclick="calculateResult()"
+        >
+          =
+        </button>
+      </div>
+    </div>
+
+    <!-- History Section -->
+    <div id="history" class="w-80 bg-gray-900 rounded-lg mt-4 p-4 text-white">
+      <h2 class="text-lg font-bold mb-2">History</h2>
+      <ul id="historyList" class="text-sm space-y-2"></ul>
+    </div>
+    <script src="./assets/js/calculator.js"></script>
+  </body>
+</html>
